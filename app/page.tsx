@@ -35,7 +35,7 @@ export default function Home() {
                 </Link>
               </Col>
               <Col xs="auto">
-                <Link href="https://drive.google.com/file/d/1GUEqLBB9M9WedTL5FOTLi5tgcKdqOweY/view" target="_blank" rel="noopener noreferrer">
+                <Link href="https://drive.google.com/file/d/1yPNNrw0_pDzpVCD2-lFMD4rfo_ve7Iaw/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                   <Image src="/BarneyJin-Portfolio/resume.png" alt="resume" width={30} height={30} />
                 </Link>
               </Col>

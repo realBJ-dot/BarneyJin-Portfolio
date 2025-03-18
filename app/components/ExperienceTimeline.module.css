@@ -151,3 +151,74 @@
     height: 50px; /* Adjust size as needed */
     margin-bottom: 10px; /* Space between icon and title */
 }
+
+.skillContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0;
+  }
+  
+  .researchItem {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+  }
+  
+  .researchItem:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .researchItem h5 {
+    margin: 0 0 8px 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .researchItem p {
+    margin: 5px 0;
+  }
+  
+  .sectionHeader {
+    margin: 15px 0 10px 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .referenceSection {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Adjust existing classes for better formatting */
+  .timelineContent h4 {
+    margin-top: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .timelineContent a {
+    text-decoration: none;
+    border-bottom: 1px dotted rgb(0, 119, 255);
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+  }
+  
+  .timelineContent a:hover {
+    border-bottom: 1px solid rgb(11, 210, 228);
+  }
+
+
+  .courseInfo {
+    font-family: 'Courier New', monospace; /* Different font */
+    font-size: 0.95rem; /* Smaller size */
+    color: rgba(173, 216, 230, 0.9); /* Light blue color */
+    margin: 5px 0 10px 0;
+    display: block;
+    font-style: italic;
+  }
