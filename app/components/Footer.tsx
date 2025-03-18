@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
         <p>If you wanna reach out
              <Link href="mailto:realbdotjdot@gmail.com" target="_blank" rel="noopener noreferrer" className='haha'> click me!</Link></p>
         <div className="mt-4">
-          <p>© 2024 Peiyuan (Barney) Jin, special thanks to GPT4o, thanks for your guidance.</p>
+          <p>© 2024 Peiyuan (Barney) Jin.</p>
         </div>
       </Container>
     </footer>
