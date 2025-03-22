@@ -33,6 +33,12 @@ jobs:
         run: | 
           npm run build
           ls -la
+        env:
+          # Add your secrets here to make them available during build
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
+          # Add this line to make the variables available at runtime for static exports
+          NEXT_PUBLIC_VERCEL_ENV: 'production'
 
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
