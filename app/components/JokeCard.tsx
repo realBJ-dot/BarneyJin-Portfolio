@@ -21,7 +21,7 @@ export default function JokeCard() {
       setIsLoading(false);
     } catch (error) {
       console.error('Error fetching joke:', error);
-      setJoke('Why did the programmer quit his job? Because he didn\'t get arrays! 😄');
+      setJoke("Why did the programmer quit his job? Because he didn&apos;t get arrays! 😄");
       setIsLoading(false);
     }
   };
@@ -45,7 +45,7 @@ export default function JokeCard() {
               height={40}
               className={styles.profileImage}
             />
-            <span className={styles.profileName}>Barney's Daily Joke</span>
+            <span className={styles.profileName}>Barney&apos;s Daily Joke</span>
           </div>
           <div className={styles.chatBubble}>
             {isLoading ? (
