@@ -78,25 +78,73 @@ const projectsData = {
     ]
 }
 
-const skills = {
-    Languages: ['TypeScript', 'Python', 'Java', 'JavaScript', 'Dart'],
-    Other: ['HTML', 'CSS', 'REST', 'GraphQL', 'OAuth 2.0'],
-    Tools: ['VSCode', 'Git', 'Docker', 'AWS', 'Terraform', 'Jenkins'],
-    Databases: ['PostgreSQL', 'MongoDB', 'Firebase', 'Cloud Firestore'],
-    Frameworks: ['React', 'Next.js', 'Express', 'Spring Boot', 'Flutter']
-}
+const skillsData = [
+    // Frontend & Languages
+    { name: 'TypeScript', level: 90, category: 'Frontend', color: 'blue', icon: '⚡' },
+    { name: 'JavaScript', level: 85, category: 'Frontend', color: 'yellow', icon: '🌟' },
+    { name: 'React', level: 88, category: 'Frontend', color: 'cyan', icon: '⚛️' },
+    { name: 'Next.js', level: 85, category: 'Frontend', color: 'gray', icon: '🚀' },
+    { name: 'HTML/CSS', level: 90, category: 'Frontend', color: 'orange', icon: '🎨' },
+
+    // Backend & Languages
+    { name: 'Python', level: 82, category: 'Backend', color: 'green', icon: '🐍' },
+    { name: 'Java', level: 78, category: 'Backend', color: 'red', icon: '☕' },
+    { name: 'Node.js', level: 80, category: 'Backend', color: 'green', icon: '🟢' },
+    { name: 'Express', level: 75, category: 'Backend', color: 'gray', icon: '⚡' },
+    { name: 'Spring Boot', level: 72, category: 'Backend', color: 'green', icon: '🍃' },
+
+    // Mobile & Cross-Platform
+    { name: 'Flutter', level: 75, category: 'Mobile', color: 'blue', icon: '📱' },
+    { name: 'Dart', level: 70, category: 'Mobile', color: 'blue', icon: '🎯' },
+    { name: 'Swift', level: 65, category: 'Mobile', color: 'orange', icon: '🍎' },
+
+    // Databases & Storage
+    { name: 'PostgreSQL', level: 80, category: 'Database', color: 'blue', icon: '🐘' },
+    { name: 'MongoDB', level: 75, category: 'Database', color: 'green', icon: '🍃' },
+    { name: 'Firebase', level: 85, category: 'Database', color: 'orange', icon: '🔥' },
+
+    // DevOps & Tools
+    { name: 'Git', level: 88, category: 'DevOps', color: 'red', icon: '📝' },
+    { name: 'Docker', level: 70, category: 'DevOps', color: 'blue', icon: '🐳' },
+    { name: 'AWS', level: 68, category: 'DevOps', color: 'orange', icon: '☁️' },
+    { name: 'VSCode', level: 95, category: 'DevOps', color: 'blue', icon: '💻' },
+]
 
 const funFacts = [
-    "I love Rick & Morty",
-    "I'm dying to create something, something that matters",
-    "I self-learnt playing piano, and is stunned with musics",
+    "I love Rick & Morty.",
+    "I'm dying to create something (like Rick, yes), something that matters.",
+    "I self-learnt playing piano, and is fascinated with musics.",
     "May be I should create a music app?",
-    "I am gathering ideas, and may be you can enlighten me",
+    "I am gathering ideas, and may be you could enlighten me.",
+
 ]
 
 export default function ModernPortfolio() {
     const [activeSection, setActiveSection] = useState('home')
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [selectedCategory, setSelectedCategory] = useState('All')
+
+    // Get color classes for skills - coherent with dark theme
+    const getColorClasses = (color: string) => {
+        const colors = {
+            blue: 'from-purple-400 to-blue-500 bg-purple-500/10 border-purple-500/20',
+            green: 'from-purple-400 to-green-500 bg-green-500/10 border-green-500/20',
+            red: 'from-purple-400 to-red-500 bg-red-500/10 border-red-500/20',
+            yellow: 'from-purple-400 to-yellow-500 bg-yellow-500/10 border-yellow-500/20',
+            purple: 'from-purple-400 to-purple-600 bg-purple-500/15 border-purple-500/30',
+            cyan: 'from-purple-400 to-cyan-500 bg-cyan-500/10 border-cyan-500/20',
+            orange: 'from-purple-400 to-orange-500 bg-orange-500/10 border-orange-500/20',
+            gray: 'from-gray-400 to-gray-600 bg-gray-500/10 border-gray-500/20'
+        }
+        return colors[color as keyof typeof colors] || colors.gray
+    }
+
+    // Filter skills by category
+    const filteredSkills = selectedCategory === 'All'
+        ? skillsData
+        : skillsData.filter(skill => skill.category === selectedCategory)
+
+    const categories = ['All', ...Array.from(new Set(skillsData.map(skill => skill.category)))]
 
     // Track active section based on scroll position
     useEffect(() => {
@@ -491,22 +539,69 @@ export default function ModernPortfolio() {
                             </div>
 
                             <div className="mb-16">
-                                <h2 className="text-3xl lg:text-4xl text-white mb-12">#skills</h2>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-8">
-                                    {Object.entries(skills).map(([category, items]) => (
-                                        <motion.div
+                                <h2 className="text-3xl lg:text-4xl text-white mb-8">#skills</h2>
+                                <p className="text-gray-400 text-base md:text-lg mb-8">Technologies I work with</p>
+
+                                {/* Category Filter */}
+                                <div className="flex flex-wrap gap-3 mb-10 justify-center">
+                                    {categories.map((category) => (
+                                        <button
                                             key={category}
-                                            className="bg-gray-800 border border-gray-600 p-4 rounded"
-                                            initial={{ opacity: 0, y: 20 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            viewport={{ once: true }}
+                                            onClick={() => setSelectedCategory(category)}
+                                            className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border ${selectedCategory === category
+                                                ? 'bg-purple-600/90 text-white shadow-lg shadow-purple-600/30 border-purple-500'
+                                                : 'bg-gray-800/50 text-gray-300 hover:bg-gray-700/70 hover:text-white border-gray-600 hover:border-gray-500'
+                                                }`}
                                         >
-                                            <h3 className="text-white font-bold mb-3">{category}</h3>
-                                            <div className="space-y-1 text-sm">
-                                                {items.map((skill) => (
-                                                    <div key={skill} className="text-gray-300">{skill}</div>
-                                                ))}
+                                            {category}
+                                        </button>
+                                    ))}
+                                </div>
+
+                                {/* Skills Grid */}
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                                    {filteredSkills.map((skill, index) => (
+                                        <motion.div
+                                            key={skill.name}
+                                            initial={{ opacity: 0, scale: 0.8 }}
+                                            whileInView={{ opacity: 1, scale: 1 }}
+                                            viewport={{ once: true }}
+                                            transition={{ delay: index * 0.1 }}
+                                            className={`relative bg-gray-800/50 border ${getColorClasses(skill.color).split(' ')[2]} rounded-xl p-5 hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300 group cursor-pointer hover:bg-gray-800/70`}
+                                        >
+                                            {/* Category Badge - moved to top with better spacing */}
+                                            <div className="absolute top-3 right-3">
+                                                <span className={`px-2 py-1 ${getColorClasses(skill.color).split(' ')[1]} text-xs rounded-full font-medium text-gray-300`}>
+                                                    {skill.category}
+                                                </span>
                                             </div>
+
+                                            {/* Skill Header with better spacing */}
+                                            <div className="mb-4 pr-16">
+                                                <div className="flex items-center space-x-3 mb-2">
+                                                    <span className="text-xl">{skill.icon}</span>
+                                                    <span className="text-white font-medium text-base">{skill.name}</span>
+                                                </div>
+                                                <div className="text-sm text-gray-400 font-mono">
+                                                    Proficiency: {skill.level}%
+                                                </div>
+                                            </div>
+
+                                            {/* Progress Bar with better spacing */}
+                                            <div className="relative mb-2">
+                                                <div className="w-full bg-gray-700/50 rounded-full h-2.5">
+                                                    <motion.div
+                                                        className={`h-2.5 rounded-full bg-gradient-to-r ${getColorClasses(skill.color).split(' ').slice(0, 2).join(' ')} shadow-sm`}
+                                                        initial={{ width: 0 }}
+                                                        whileInView={{ width: `${skill.level}%` }}
+                                                        viewport={{ once: true }}
+                                                        transition={{ duration: 1, delay: index * 0.1 + 0.5 }}
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            {/* Hover Effect */}
+                                            <div className={`absolute inset-0 bg-gradient-to-r ${getColorClasses(skill.color).split(' ').slice(0, 2).join(' ')} opacity-0 group-hover:opacity-10 rounded-xl transition-opacity duration-300`}></div>
                                         </motion.div>
                                     ))}
                                 </div>
