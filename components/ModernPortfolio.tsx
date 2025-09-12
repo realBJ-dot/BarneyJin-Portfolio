@@ -98,6 +98,7 @@ const funFacts = [
 
 export default function ModernPortfolio() {
     const [activeSection, setActiveSection] = useState('home')
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
     // Track active section based on scroll position
     useEffect(() => {
@@ -231,8 +232,16 @@ export default function ModernPortfolio() {
 
     return (
         <div className="min-h-screen bg-gray-900 text-gray-300 font-mono">
+            {/* Mobile Navigation Button */}
+            <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="fixed top-4 left-4 z-50 md:hidden bg-gray-800/90 backdrop-blur-sm rounded-lg p-3 text-white border border-gray-600"
+            >
+                {mobileMenuOpen ? '✕' : '☰'}
+            </button>
+
             {/* Sidebar */}
-            <div className="fixed left-0 top-0 w-20 h-full bg-gray-800/95 backdrop-blur-sm border-r border-gray-700 flex flex-col items-center py-6 z-50">
+            <div className={`fixed left-0 top-0 w-20 h-full bg-gray-800/95 backdrop-blur-sm border-r border-gray-700 flex flex-col items-center py-6 z-50 transition-transform duration-300 ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}`}>
                 {/* Profile avatar */}
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-blue-600 flex items-center justify-center mb-8 border-2 border-gray-600">
                     <span className="text-sm font-bold text-white">BJ</span>
@@ -267,15 +276,23 @@ export default function ModernPortfolio() {
                 <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 w-0.5 h-8 bg-gradient-to-b from-purple-400 to-transparent rounded-full"></div>
             </div>
 
+            {/* Mobile Overlay */}
+            {mobileMenuOpen && (
+                <div
+                    className="fixed inset-0 bg-black/50 z-40 md:hidden"
+                    onClick={() => setMobileMenuOpen(false)}
+                />
+            )}
+
             {/* Main Content */}
-            <div className="ml-20">
+            <div className="ml-0 md:ml-20">
                 {/* Header */}
-                <header className="bg-gray-800 border-b border-gray-700 px-6 py-3 sticky top-0 z-40">
+                <header className="bg-gray-800 border-b border-gray-700 px-4 md:px-6 py-3 sticky top-0 z-40">
                     <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-2">
+                        <div className="flex items-center space-x-2 ml-16 md:ml-0">
                             <span className="text-white font-bold">🌟 Barney</span>
                         </div>
-                        <nav className="flex items-center space-x-6">
+                        <nav className="hidden md:flex items-center space-x-6">
                             <button
                                 onClick={() => scrollToSection('home')}
                                 className={`text-sm hover:text-purple-400 transition-colors ${activeSection === 'home' ? 'text-purple-400' : 'text-gray-300'
@@ -316,19 +333,19 @@ export default function ModernPortfolio() {
                 </header>
 
                 {/* Home Section */}
-                <section id="home" className="min-h-screen flex items-center justify-center p-6">
+                <section id="home" className="min-h-screen flex items-center justify-center p-4 md:p-6">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         className="max-w-7xl w-full"
                     >
-                        <div className="grid lg:grid-cols-2 gap-16 items-center">
+                        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                             <div className="mb-8">
-                                <h1 className="text-4xl lg:text-5xl text-white mb-6 leading-tight">
+                                <h1 className="text-3xl md:text-4xl lg:text-5xl text-white mb-6 leading-tight">
                                     Barney is a <span className="text-purple-400">full-stack developer</span> and{' '}
                                     <span className="text-purple-400">more ...</span>
                                 </h1>
-                                <p className="text-gray-400 mb-8 text-lg">
+                                <p className="text-gray-400 mb-8 text-base md:text-lg">
                                     He will do nasty work (software problems only) for you, with creativity, and some passion.
                                 </p>
                                 <button
@@ -342,7 +359,7 @@ export default function ModernPortfolio() {
                             <div className="relative flex justify-center lg:justify-end">
                                 {/* Main profile image container */}
                                 <div className="relative">
-                                    <div className="w-96 h-96 lg:w-[450px] lg:h-[450px] relative">
+                                    <div className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px] relative">
                                         <img
                                             src="./images/profile.png"
                                             alt="Profile"
@@ -397,15 +414,15 @@ export default function ModernPortfolio() {
                 </section>
 
                 {/* Projects Section */}
-                <section id="projects" className="min-h-screen py-20 px-6">
+                <section id="projects" className="min-h-screen py-20 px-4 md:px-6">
                     <div className="max-w-7xl mx-auto">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                         >
-                            <h1 className="text-4xl lg:text-5xl text-white mb-6 leading-tight">/projects</h1>
-                            <p className="text-gray-400 text-lg mb-16">List of my projects</p>
+                            <h1 className="text-3xl md:text-4xl lg:text-5xl text-white mb-6 leading-tight">/projects</h1>
+                            <p className="text-gray-400 text-base md:text-lg mb-8 md:mb-16">List of my projects</p>
 
                             <div className="space-y-16">
                                 {Object.entries(projectsData).map(([category, projects]) => (
@@ -424,17 +441,17 @@ export default function ModernPortfolio() {
                 </section>
 
                 {/* About Section */}
-                <section id="about-me" className="min-h-screen py-20 px-6">
+                <section id="about-me" className="min-h-screen py-20 px-4 md:px-6">
                     <div className="max-w-7xl mx-auto">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                         >
-                            <h1 className="text-4xl lg:text-5xl text-white mb-6 leading-tight">/about-me</h1>
-                            <p className="text-gray-400 text-lg mb-16">Who am I?</p>
+                            <h1 className="text-3xl md:text-4xl lg:text-5xl text-white mb-6 leading-tight">/about-me</h1>
+                            <p className="text-gray-400 text-base md:text-lg mb-8 md:mb-16">Who am I?</p>
 
-                            <div className="grid lg:grid-cols-2 gap-16 mb-16">
+                            <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 mb-16">
                                 <div className="space-y-6 text-lg leading-relaxed">
                                     <p>Hello, I'm Barney!</p>
                                     <p>
@@ -474,7 +491,7 @@ export default function ModernPortfolio() {
 
                             <div className="mb-16">
                                 <h2 className="text-3xl lg:text-4xl text-white mb-12">#skills</h2>
-                                <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-8">
                                     {Object.entries(skills).map(([category, items]) => (
                                         <motion.div
                                             key={category}
@@ -496,7 +513,7 @@ export default function ModernPortfolio() {
 
                             <div className="mb-16">
                                 <h2 className="text-3xl lg:text-4xl text-white mb-12">#my-fun-facts</h2>
-                                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
                                     {funFacts.map((fact, index) => (
                                         <motion.div
                                             key={index}
@@ -516,15 +533,15 @@ export default function ModernPortfolio() {
                 </section>
 
                 {/* Education Section */}
-                <section id="education" className="min-h-screen py-20 px-6">
+                <section id="education" className="min-h-screen py-20 px-4 md:px-6">
                     <div className="max-w-7xl mx-auto">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                         >
-                            <h1 className="text-4xl lg:text-5xl text-white mb-6 leading-tight">/education</h1>
-                            <p className="text-gray-400 text-lg mb-16">My academic journey</p>
+                            <h1 className="text-3xl md:text-4xl lg:text-5xl text-white mb-6 leading-tight">/education</h1>
+                            <p className="text-gray-400 text-base md:text-lg mb-8 md:mb-16">My academic journey</p>
 
                             <div className="space-y-12">
                                 {/* Master's Degree */}
@@ -636,17 +653,17 @@ export default function ModernPortfolio() {
                 </section>
 
                 {/* Contacts Section */}
-                <section id="contacts" className="min-h-screen py-20 px-6">
+                <section id="contacts" className="min-h-screen py-20 px-4 md:px-6">
                     <div className="max-w-7xl mx-auto">
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                         >
-                            <h1 className="text-4xl lg:text-5xl text-white mb-6 leading-tight">/contacts</h1>
-                            <p className="text-gray-400 text-lg mb-16">Who am I?</p>
+                            <h1 className="text-3xl md:text-4xl lg:text-5xl text-white mb-6 leading-tight">/contacts</h1>
+                            <p className="text-gray-400 text-base md:text-lg mb-8 md:mb-16">Who am I?</p>
 
-                            <div className="grid md:grid-cols-2 gap-16">
+                            <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
                                 <div>
                                     <p className="text-lg mb-8 leading-relaxed">
                                         I'm always looking forward to connecting with new people! Don't hesitate to contact me!
