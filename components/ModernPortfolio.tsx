@@ -87,13 +87,11 @@ const skills = {
 }
 
 const funFacts = [
-    "I like coding more than sleeping",
-    "I often debug with my rubber duck",
-    "I like coffee and algorithms",
-    "I was at John Deere and EngineeringPeople",
-    "My favorite language is TypeScript",
-    "I am currently at University of Illinois",
-    "I have 3+ years of experience"
+    "I love Rick & Morty",
+    "I'm dying to create something, something that matters",
+    "I self-learnt playing piano, and is stunned with musics",
+    "May be I should create a music app?",
+    "I am gathering ideas, and may be you can enlighten me",
 ]
 
 export default function ModernPortfolio() {
@@ -136,48 +134,51 @@ export default function ModernPortfolio() {
             viewport={{ once: true }}
             className="bg-gray-800 border border-gray-600 rounded p-4 hover:border-purple-400 hover:shadow-lg hover:shadow-purple-400/20 transition-all duration-300 group cursor-pointer"
         >
-            <div className="h-32 bg-gray-700 rounded mb-3 flex items-center justify-center group-hover:bg-gray-600 transition-colors overflow-hidden">
-                {project.id === 1 && project.title === "SmarNote" ? (
-                    <img
-                        src="./images/SmarNote-Icon.png"
-                        alt="SmarNote Icon"
-                        className="w-16 h-16 object-contain"
-                    />
-                ) : project.id === 2 && project.title === "Go Birdie Go" ? (
-                    <div className="w-16 h-16 bg-white rounded-lg p-1 flex items-center justify-center">
-                        <img
-                            src="./images/gobirdiegoIcon.png"
-                            alt="Go Birdie Go Icon"
-                            className="w-full h-full object-contain"
-                            style={{
-                                filter: 'contrast(1.1) brightness(0.95)',
-                                clipPath: 'inset(8% 8% 8% 8%)'
-                            }}
-                        />
-                    </div>
-                ) : project.title === "Goodreads Lookup Tool" ? (
-                    <div className="w-16 h-16 bg-gradient-to-br from-amber-600 to-orange-600 rounded-lg flex items-center justify-center relative">
-                        <Book className="w-8 h-8 text-white" />
-                        <Search className="w-4 h-4 text-amber-200 absolute top-2 right-2" />
-                    </div>
-                ) : project.title === "GitHub User-Info Finder" ? (
-                    <div className="w-16 h-16 bg-gradient-to-br from-gray-700 to-gray-900 rounded-lg flex items-center justify-center relative border border-gray-600">
-                        <Github className="w-6 h-6 text-white" />
-                        <User className="w-4 h-4 text-gray-300 absolute bottom-2 right-2" />
-                    </div>
-                ) : project.title === "University Projects" ? (
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-lg flex items-center justify-center relative">
-                        <GraduationCap className="w-8 h-8 text-white" />
-                        <Code className="w-4 h-4 text-blue-200 absolute bottom-2 right-2" />
-                    </div>
-                ) : project.title === "Research Projects" ? (
-                    <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center relative">
-                        <Microscope className="w-7 h-7 text-white" />
-                        <Brain className="w-4 h-4 text-purple-200 absolute top-2 right-2" />
-                    </div>
-                ) : (
-                    <Folder className="w-8 h-8 text-gray-400 group-hover:text-purple-400 transition-colors" />
-                )}
+            {/* App Icon - Compact Design */}
+            <div className="mb-4">
+                <div className="w-12 h-12 rounded-xl shadow-lg flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
+                    {project.id === 1 && project.title === "SmarNote" ? (
+                        <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+                            <img
+                                src="./images/SmarNote-Icon.png"
+                                alt="SmarNote Icon"
+                                className="w-8 h-8 object-contain"
+                            />
+                        </div>
+                    ) : project.id === 2 && project.title === "Go Birdie Go" ? (
+                        <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-600 rounded-xl flex items-center justify-center">
+                            <img
+                                src="./images/gobirdiegoIcon.png"
+                                alt="Go Birdie Go Icon"
+                                className="w-8 h-8 object-contain"
+                            />
+                        </div>
+                    ) : project.title === "Goodreads Lookup Tool" ? (
+                        <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center">
+                            <Book className="w-7 h-7 text-white" />
+                        </div>
+                    ) : project.title === "GitHub User-Info Finder" ? (
+                        <div className="w-12 h-12 bg-gradient-to-br from-gray-700 to-gray-900 rounded-xl flex items-center justify-center border border-gray-600">
+                            <Github className="w-7 h-7 text-white" />
+                        </div>
+                    ) : project.title === "Portfolio Website" ? (
+                        <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-600 rounded-xl flex items-center justify-center">
+                            <Folder className="w-7 h-7 text-white" />
+                        </div>
+                    ) : project.title === "University Projects" ? (
+                        <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl flex items-center justify-center">
+                            <GraduationCap className="w-7 h-7 text-white" />
+                        </div>
+                    ) : project.title === "Research Projects" ? (
+                        <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl flex items-center justify-center">
+                            <Microscope className="w-7 h-7 text-white" />
+                        </div>
+                    ) : (
+                        <div className="w-12 h-12 bg-gradient-to-br from-gray-600 to-gray-700 rounded-xl flex items-center justify-center">
+                            <Folder className="w-7 h-7 text-white" />
+                        </div>
+                    )}
+                </div>
             </div>
             <h3 className="text-white font-bold mb-2 group-hover:text-purple-400 transition-colors">{project.title}</h3>
             <p className="text-gray-400 text-sm mb-3">{project.description}</p>
