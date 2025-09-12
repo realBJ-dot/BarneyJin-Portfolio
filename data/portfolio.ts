@@ -13,7 +13,7 @@ export const aboutItems: PortfolioItem[] = [
       { label: 'Languages', value: '10+' },
       { label: 'Projects', value: '15+' }
     ],
-    image: '/images/Man-in-Lecture.JPEG',
+    image: './images/Man-in-Lecture.JPEG',
     technologies: ['JavaScript', 'Python', 'React', 'NextJS', 'Java', 'TypeScript', 'AWS', 'Firebase'],
     link: 'mailto:peiyuan3@illinois.edu',
     github: 'https://github.com/realBJ-dot'
@@ -68,7 +68,7 @@ export const educationItems: PortfolioItem[] = [
       { label: 'Duration', value: 'Jan 2024 - May 2025' },
       { label: 'Research', value: '2 Projects' }
     ],
-    image: '/images/profile.png',
+    image: './images/profile.png',
     technologies: ['Fault Tolerant Systems', 'Computer System Organization', 'Large Language Models', 'Autonomous Vehicles', 'Universal Fuzzing'],
     link: 'https://cs.illinois.edu',
     github: 'https://github.com/realBJ-dot'
@@ -84,7 +84,7 @@ export const educationItems: PortfolioItem[] = [
       { label: 'Duration', value: 'Aug 2019 - May 2023' },
       { label: 'Teaching', value: 'CS125, CS222' }
     ],
-    image: '/images/Man-in-Lecture.JPEG',
+    image: './images/Man-in-Lecture.JPEG',
     technologies: ['Java', 'Python', 'JavaScript', 'Android Studio', 'RESTful API', 'Data Analytics', 'Linear Algebra'],
     link: 'https://math.illinois.edu',
     github: 'https://github.com/realBJ-dot'

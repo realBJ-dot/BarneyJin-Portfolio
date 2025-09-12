@@ -138,14 +138,14 @@ export default function ModernPortfolio() {
             <div className="h-32 bg-gray-700 rounded mb-3 flex items-center justify-center group-hover:bg-gray-600 transition-colors overflow-hidden">
                 {project.id === 1 && project.title === "SmarNote" ? (
                     <img
-                        src="/images/SmarNote-Icon.png"
+                        src="./images/SmarNote-Icon.png"
                         alt="SmarNote Icon"
                         className="w-16 h-16 object-contain"
                     />
                 ) : project.id === 2 && project.title === "Go Birdie Go" ? (
                     <div className="w-16 h-16 bg-white rounded-lg p-1 flex items-center justify-center">
                         <img
-                            src="/images/gobirdiegoIcon.png"
+                            src="./images/gobirdiegoIcon.png"
                             alt="Go Birdie Go Icon"
                             className="w-full h-full object-contain"
                             style={{
@@ -344,7 +344,7 @@ export default function ModernPortfolio() {
                                 <div className="relative">
                                     <div className="w-96 h-96 lg:w-[450px] lg:h-[450px] relative">
                                         <img
-                                            src="/images/profile.png"
+                                            src="./images/profile.png"
                                             alt="Profile"
                                             className="w-full h-full object-cover rounded-lg"
                                         />
@@ -457,7 +457,7 @@ export default function ModernPortfolio() {
                                 <div className="relative flex justify-center">
                                     <div className="w-80 h-96 bg-gray-800 border border-gray-600 rounded">
                                         <img
-                                            src="/images/Man-in-Lecture.JPEG"
+                                            src="./images/Man-in-Lecture.JPEG"
                                             alt="Profile"
                                             className="w-full h-full object-cover rounded"
                                         />
@@ -566,7 +566,7 @@ export default function ModernPortfolio() {
                                         <div className="flex justify-center">
                                             <div className="w-24 h-24 bg-white rounded-lg flex items-center justify-center p-2">
                                                 <img
-                                                    src="/images/Illinois_logo_fullcolor_rgb.png"
+                                                    src="./images/Illinois_logo_fullcolor_rgb.png"
                                                     alt="University of Illinois Logo"
                                                     className="w-full h-full object-contain"
                                                 />
@@ -620,7 +620,7 @@ export default function ModernPortfolio() {
                                         <div className="flex justify-center">
                                             <div className="w-24 h-24 bg-white rounded-lg flex items-center justify-center p-2">
                                                 <img
-                                                    src="/images/Illinois_logo_fullcolor_rgb.png"
+                                                    src="./images/Illinois_logo_fullcolor_rgb.png"
                                                     alt="University of Illinois Logo"
                                                     className="w-full h-full object-contain"
                                                 />
