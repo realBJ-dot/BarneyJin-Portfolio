@@ -10,7 +10,6 @@ const projectsData = {
             id: 1,
             title: "SmarNote",
             description: "AI-powered iOS note-taking app with speech recognition and intelligent organization",
-            image: "/api/placeholder/300/200",
             technologies: ["Swift", "iOS", "AI Integration", "Speech Recognition"],
             liveUrl: "#",
             githubUrl: "https://github.com/realBJ-dot/SmarNote"
@@ -19,7 +18,6 @@ const projectsData = {
             id: 2,
             title: "Go Birdie Go",
             description: "Advanced Golf Analytics Platform with Firebase backend and real-time data sync",
-            image: "/api/placeholder/300/200",
             technologies: ["Dart", "Firebase", "Cloud Firestore", "Material UI"],
             liveUrl: "https://www.gobirdiego.com/",
             githubUrl: "#"
@@ -31,7 +29,6 @@ const projectsData = {
             id: 5,
             title: "Goodreads Lookup Tool",
             description: "Data visualization platform with book analytics and REST API",
-            image: "/api/placeholder/300/200",
             technologies: ["Python", "PyMongo", "JavaScript", "REST API", "Data Scraping"],
             liveUrl: "#",
             githubUrl: "https://github.com/realBJ-dot/Goodread_lookup_tool"
@@ -40,7 +37,6 @@ const projectsData = {
             id: 6,
             title: "GitHub User-Info Finder",
             description: "React Native mobile app with GraphQL integration for GitHub analytics",
-            image: "/api/placeholder/300/200",
             technologies: ["React Native", "GraphQL", "JavaScript", "GitHub API"],
             liveUrl: "#",
             githubUrl: "https://github.com/realBJ-dot/Github_Userinfo_Finding"
@@ -49,7 +45,6 @@ const projectsData = {
             id: 7,
             title: "Portfolio Website",
             description: "Modern developer portfolio with code-themed design",
-            image: "/api/placeholder/300/200",
             technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
             liveUrl: "https://realbj-dot.github.io/BarneyJin-Portfolio/",
             githubUrl: "https://github.com/realBJ-dot/BarneyJin-Portfolio"
@@ -61,7 +56,6 @@ const projectsData = {
             id: 8,
             title: "University Projects",
             description: "CS125 & CS222 teaching assistant projects and coursework",
-            image: "/api/placeholder/300/200",
             technologies: ["Java", "JavaScript", "Android Studio", "Educational Tools"],
             liveUrl: "#",
             githubUrl: "https://github.com/realBJ-dot"
@@ -70,7 +64,6 @@ const projectsData = {
             id: 9,
             title: "Research Projects",
             description: "Fault Tolerant Systems and Fuzz4ALL research at UIUC",
-            image: "/api/placeholder/300/200",
             technologies: ["Large Language Models", "Autonomous Vehicles", "Universal Fuzzing"],
             liveUrl: "#",
             githubUrl: "https://github.com/realBJ-dot"
@@ -127,13 +120,6 @@ export default function ModernPortfolio() {
     // Get color classes for skills - coherent with dark theme
     const getColorClasses = (color: string) => {
         const colors = {
-            blue: 'from-purple-400 to-blue-500 bg-purple-500/10 border-purple-500/20',
-            green: 'from-purple-400 to-green-500 bg-green-500/10 border-green-500/20',
-            red: 'from-purple-400 to-red-500 bg-red-500/10 border-red-500/20',
-            yellow: 'from-purple-400 to-yellow-500 bg-yellow-500/10 border-yellow-500/20',
-            purple: 'from-purple-400 to-purple-600 bg-purple-500/15 border-purple-500/30',
-            cyan: 'from-purple-400 to-cyan-500 bg-cyan-500/10 border-cyan-500/20',
-            orange: 'from-purple-400 to-orange-500 bg-orange-500/10 border-orange-500/20',
             gray: 'from-gray-400 to-gray-600 bg-gray-500/10 border-gray-500/20'
         }
         return colors[color as keyof typeof colors] || colors.gray
@@ -183,51 +169,7 @@ export default function ModernPortfolio() {
             className="bg-gray-800 border border-gray-600 rounded p-4 hover:border-purple-400 hover:shadow-lg hover:shadow-purple-400/20 transition-all duration-300 group cursor-pointer"
         >
             {/* App Icon - Compact Design */}
-            <div className="mb-4">
-                <div className="w-12 h-12 rounded-xl shadow-lg flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
-                    {project.id === 1 && project.title === "SmarNote" ? (
-                        <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
-                            <img
-                                src="./images/SmarNote-Icon.png"
-                                alt="SmarNote Icon"
-                                className="w-8 h-8 object-contain"
-                            />
-                        </div>
-                    ) : project.id === 2 && project.title === "Go Birdie Go" ? (
-                        <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-600 rounded-xl flex items-center justify-center">
-                            <img
-                                src="./images/gobirdiegoIcon.png"
-                                alt="Go Birdie Go Icon"
-                                className="w-8 h-8 object-contain"
-                            />
-                        </div>
-                    ) : project.title === "Goodreads Lookup Tool" ? (
-                        <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center">
-                            <Book className="w-7 h-7 text-white" />
-                        </div>
-                    ) : project.title === "GitHub User-Info Finder" ? (
-                        <div className="w-12 h-12 bg-gradient-to-br from-gray-700 to-gray-900 rounded-xl flex items-center justify-center border border-gray-600">
-                            <Github className="w-7 h-7 text-white" />
-                        </div>
-                    ) : project.title === "Portfolio Website" ? (
-                        <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-600 rounded-xl flex items-center justify-center">
-                            <Folder className="w-7 h-7 text-white" />
-                        </div>
-                    ) : project.title === "University Projects" ? (
-                        <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl flex items-center justify-center">
-                            <GraduationCap className="w-7 h-7 text-white" />
-                        </div>
-                    ) : project.title === "Research Projects" ? (
-                        <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl flex items-center justify-center">
-                            <Microscope className="w-7 h-7 text-white" />
-                        </div>
-                    ) : (
-                        <div className="w-12 h-12 bg-gradient-to-br from-gray-600 to-gray-700 rounded-xl flex items-center justify-center">
-                            <Folder className="w-7 h-7 text-white" />
-                        </div>
-                    )}
-                </div>
-            </div>
+            
             <h3 className="text-white font-bold mb-2 group-hover:text-purple-400 transition-colors">{project.title}</h3>
             <p className="text-gray-400 text-sm mb-3">{project.description}</p>
             <div className="flex flex-wrap gap-1 mb-3">
@@ -278,75 +220,6 @@ export default function ModernPortfolio() {
             </div>
         </motion.div>
     )
-
-export default function ModernPortfolio() {
-    const [selectedCategory, setSelectedCategory] = useState('apps')
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
-    // Skills data with categories
-    const skillsData = [
-        // Frontend & Languages
-        { name: 'TypeScript', level: 90, category: 'Frontend', color: 'blue', icon: '⚡' },
-        { name: 'JavaScript', level: 85, category: 'Frontend', color: 'yellow', icon: '🌟' },
-        { name: 'React', level: 88, category: 'Frontend', color: 'cyan', icon: '⚛️' },
-        { name: 'Next.js', level: 85, category: 'Frontend', color: 'gray', icon: '🚀' },
-        { name: 'HTML/CSS', level: 90, category: 'Frontend', color: 'orange', icon: '🎨' },
-        
-        // Backend & Languages
-        { name: 'Python', level: 82, category: 'Backend', color: 'green', icon: '🐍' },
-        { name: 'Java', level: 78, category: 'Backend', color: 'red', icon: '☕' },
-        { name: 'Node.js', level: 80, category: 'Backend', color: 'green', icon: '🟢' },
-        { name: 'Express', level: 75, category: 'Backend', color: 'gray', icon: '⚡' },
-        { name: 'Spring Boot', level: 72, category: 'Backend', color: 'green', icon: '🍃' },
-        
-        // Mobile & Cross-Platform
-        { name: 'Flutter', level: 75, category: 'Mobile', color: 'blue', icon: '📱' },
-        { name: 'Dart', level: 70, category: 'Mobile', color: 'blue', icon: '🎯' },
-        { name: 'Swift', level: 65, category: 'Mobile', color: 'orange', icon: '🍎' },
-        
-        // Databases & Storage
-        { name: 'PostgreSQL', level: 80, category: 'Database', color: 'blue', icon: '🐘' },
-        { name: 'MongoDB', level: 75, category: 'Database', color: 'green', icon: '🍃' },
-        { name: 'Firebase', level: 85, category: 'Database', color: 'orange', icon: '🔥' },
-        
-        // DevOps & Tools
-        { name: 'Git', level: 88, category: 'DevOps', color: 'red', icon: '📝' },
-        { name: 'Docker', level: 70, category: 'DevOps', color: 'blue', icon: '🐳' },
-        { name: 'AWS', level: 68, category: 'DevOps', color: 'orange', icon: '☁️' },
-        { name: 'VSCode', level: 95, category: 'DevOps', color: 'blue', icon: '💻' },
-    ]
-
-    // Get color classes for skills - coherent with dark theme
-    const getColorClasses = (color: string) => {
-        const colors = {
-            blue: 'from-purple-400 to-blue-500 bg-purple-500/10 border-purple-500/20',
-            green: 'from-purple-400 to-green-500 bg-green-500/10 border-green-500/20',
-            red: 'from-purple-400 to-red-500 bg-red-500/10 border-red-500/20',
-            yellow: 'from-purple-400 to-yellow-500 bg-yellow-500/10 border-yellow-500/20',
-            purple: 'from-purple-400 to-purple-600 bg-purple-500/15 border-purple-500/30',
-            cyan: 'from-purple-400 to-cyan-500 bg-cyan-500/10 border-cyan-500/20',
-            orange: 'from-purple-400 to-orange-500 bg-orange-500/10 border-orange-500/20',
-            gray: 'from-gray-400 to-gray-600 bg-gray-500/10 border-gray-500/20'
-        }
-        return colors[color as keyof typeof colors] || colors.gray
-    }
-
-    // Get unique categories for filter buttons
-    const categories = ['All', ...Array.from(new Set(skillsData.map(skill => skill.category)))]
-
-    // Filter skills based on selected category
-    const filteredSkills = selectedCategory === 'All' 
-        ? skillsData 
-        : skillsData.filter(skill => skill.category === selectedCategory)
-
-    const funFacts = [
-        "I love Rick & Morty.",
-        "I'm dying to create something (like Rick, yes), something that matters.",
-        "I self-learnt playing piano, and is fascinated with musics.",
-        "May be I should create a music app?",
-        "I am gathering ideas, and may be you could enlighten me.",
-
-    ]
 
     return (
         <div className="min-h-screen bg-gray-900 text-gray-300 font-mono">
@@ -697,125 +570,7 @@ export default function ModernPortfolio() {
                     </div>
                 </section>
 
-                {/* Education Section */}
-                <section id="education" className="min-h-screen py-20 px-4 md:px-6">
-                    <div className="max-w-7xl mx-auto">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                        >
-                            <h1 className="text-3xl md:text-4xl lg:text-5xl text-white mb-6 leading-tight">/education</h1>
-                            <p className="text-gray-400 text-base md:text-lg mb-8 md:mb-16">My academic journey</p>
 
-                            <div className="space-y-12">
-                                {/* Master's Degree */}
-                                <motion.div
-                                    initial={{ opacity: 0, x: -30 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    className="bg-gray-800 border border-gray-600 rounded-lg p-8 hover:border-purple-400 transition-colors group"
-                                >
-                                    <div className="grid lg:grid-cols-3 gap-8 items-start">
-                                        <div className="lg:col-span-2">
-                                            <div className="flex items-start justify-between mb-4">
-                                                <div>
-                                                    <h3 className="text-2xl text-white font-bold mb-2 group-hover:text-purple-400 transition-colors">
-                                                        Master of Computer Science
-                                                    </h3>
-                                                    <p className="text-purple-400 font-semibold mb-2">University of Illinois at Urbana-Champaign</p>
-                                                    <p className="text-gray-400 text-sm">Jan 2024 - May 2025</p>
-                                                </div>
-                                                <div className="text-right">
-                                                    <div className="bg-purple-600/20 px-3 py-1 rounded-full">
-                                                        <span className="text-purple-400 font-bold">GPA: 3.8/4.0</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <p className="text-gray-300 mb-4 leading-relaxed">
-                                                Currently pursuing Master of Computer Science with focus on Generative AI for Software Engineering,
-                                                Operating System Design, and Cloud Networking. Engaged in cutting-edge research projects including
-                                                Fault Tolerant System Design for Autonomous Vehicles and Extended Empirical Study on Fuzz4ALL.
-                                            </p>
-                                            <div className="flex flex-wrap gap-2">
-                                                {['Fault Tolerant Systems', 'Computer System Organization', 'Large Language Models', 'Autonomous Vehicles', 'Universal Fuzzing'].map((topic) => (
-                                                    <span key={topic} className="px-3 py-1 bg-gray-700 rounded-full text-sm text-gray-300 group-hover:bg-purple-800/30 transition-colors">
-                                                        {topic}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                        </div>
-                                        <div className="flex justify-center">
-                                            <div className="w-24 h-24 bg-white rounded-lg flex items-center justify-center p-2">
-                                                <img
-                                                    src="./images/Illinois_logo_fullcolor_rgb.png"
-                                                    alt="University of Illinois Logo"
-                                                    className="w-full h-full object-contain"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </motion.div>
-
-                                {/* Bachelor's Degree */}
-                                <motion.div
-                                    initial={{ opacity: 0, x: 30 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.2 }}
-                                    className="bg-gray-800 border border-gray-600 rounded-lg p-8 hover:border-purple-400 transition-colors group"
-                                >
-                                    <div className="grid lg:grid-cols-3 gap-8 items-start">
-                                        <div className="lg:col-span-2">
-                                            <div className="flex items-start justify-between mb-4">
-                                                <div>
-                                                    <h3 className="text-2xl text-white font-bold mb-2 group-hover:text-purple-400 transition-colors">
-                                                        Bachelor of Science in Mathematics & Computer Science
-                                                    </h3>
-                                                    <p className="text-purple-400 font-semibold mb-2">University of Illinois at Urbana-Champaign</p>
-                                                    <p className="text-gray-400 text-sm">Aug 2019 - May 2023</p>
-                                                </div>
-                                                <div className="text-right">
-                                                    <div className="bg-purple-600/20 px-3 py-1 rounded-full">
-                                                        <span className="text-purple-400 font-bold">GPA: 3.6/4.0</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <p className="text-gray-300 mb-4 leading-relaxed">
-                                                Bachelor of Science in Mathematics and Computer Science with minor in Statistics.
-                                                Served as Teaching Assistant for CS125 (Intro to CS) and CS222 (Software Programming Studio).
-                                                Strong foundation in Data Structure, Data Analytics, Algorithms, Linear Algebra, Database Design,
-                                                and Computer System Organization.
-                                            </p>
-                                            <div className="flex flex-wrap gap-2 mb-4">
-                                                {['Java', 'Python', 'JavaScript', 'Android Studio', 'RESTful API', 'Data Analytics', 'Linear Algebra'].map((skill) => (
-                                                    <span key={skill} className="px-3 py-1 bg-gray-700 rounded-full text-sm text-gray-300 group-hover:bg-purple-800/30 transition-colors">
-                                                        {skill}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                            <div className="bg-blue-600/20 p-3 rounded">
-                                                <p className="text-blue-400 font-semibold text-sm">Teaching Assistant</p>
-                                                <p className="text-gray-300 text-sm">CS125 (Intro to Computer Science) & CS222 (Software Programming Studio)</p>
-                                            </div>
-                                        </div>
-                                        <div className="flex justify-center">
-                                            <div className="w-24 h-24 bg-white rounded-lg flex items-center justify-center p-2">
-                                                <img
-                                                    src="./images/Illinois_logo_fullcolor_rgb.png"
-                                                    alt="University of Illinois Logo"
-                                                    className="w-full h-full object-contain"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </motion.div>
-
-
-                            </div>
-                        </motion.div>
-                    </div>
-                </section>
 
                 {/* Contacts Section */}
                 <section id="contacts" className="min-h-screen py-20 px-4 md:px-6">
