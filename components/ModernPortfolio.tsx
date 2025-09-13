@@ -51,8 +51,8 @@ const projectsData = {
             description: "Modern developer portfolio with code-themed design",
             image: "/api/placeholder/300/200",
             technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-            liveUrl: "#",
-            githubUrl: "https://github.com/realBJ-dot/portfolio-website"
+            liveUrl: "https://realbj-dot.github.io/BarneyJin-Portfolio/",
+            githubUrl: "https://github.com/realBJ-dot/BarneyJin-Portfolio"
         },
     ],
     "school-stuff": [
@@ -278,6 +278,75 @@ export default function ModernPortfolio() {
             </div>
         </motion.div>
     )
+
+export default function ModernPortfolio() {
+    const [selectedCategory, setSelectedCategory] = useState('apps')
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+    // Skills data with categories
+    const skillsData = [
+        // Frontend & Languages
+        { name: 'TypeScript', level: 90, category: 'Frontend', color: 'blue', icon: '⚡' },
+        { name: 'JavaScript', level: 85, category: 'Frontend', color: 'yellow', icon: '🌟' },
+        { name: 'React', level: 88, category: 'Frontend', color: 'cyan', icon: '⚛️' },
+        { name: 'Next.js', level: 85, category: 'Frontend', color: 'gray', icon: '🚀' },
+        { name: 'HTML/CSS', level: 90, category: 'Frontend', color: 'orange', icon: '🎨' },
+        
+        // Backend & Languages
+        { name: 'Python', level: 82, category: 'Backend', color: 'green', icon: '🐍' },
+        { name: 'Java', level: 78, category: 'Backend', color: 'red', icon: '☕' },
+        { name: 'Node.js', level: 80, category: 'Backend', color: 'green', icon: '🟢' },
+        { name: 'Express', level: 75, category: 'Backend', color: 'gray', icon: '⚡' },
+        { name: 'Spring Boot', level: 72, category: 'Backend', color: 'green', icon: '🍃' },
+        
+        // Mobile & Cross-Platform
+        { name: 'Flutter', level: 75, category: 'Mobile', color: 'blue', icon: '📱' },
+        { name: 'Dart', level: 70, category: 'Mobile', color: 'blue', icon: '🎯' },
+        { name: 'Swift', level: 65, category: 'Mobile', color: 'orange', icon: '🍎' },
+        
+        // Databases & Storage
+        { name: 'PostgreSQL', level: 80, category: 'Database', color: 'blue', icon: '🐘' },
+        { name: 'MongoDB', level: 75, category: 'Database', color: 'green', icon: '🍃' },
+        { name: 'Firebase', level: 85, category: 'Database', color: 'orange', icon: '🔥' },
+        
+        // DevOps & Tools
+        { name: 'Git', level: 88, category: 'DevOps', color: 'red', icon: '📝' },
+        { name: 'Docker', level: 70, category: 'DevOps', color: 'blue', icon: '🐳' },
+        { name: 'AWS', level: 68, category: 'DevOps', color: 'orange', icon: '☁️' },
+        { name: 'VSCode', level: 95, category: 'DevOps', color: 'blue', icon: '💻' },
+    ]
+
+    // Get color classes for skills - coherent with dark theme
+    const getColorClasses = (color: string) => {
+        const colors = {
+            blue: 'from-purple-400 to-blue-500 bg-purple-500/10 border-purple-500/20',
+            green: 'from-purple-400 to-green-500 bg-green-500/10 border-green-500/20',
+            red: 'from-purple-400 to-red-500 bg-red-500/10 border-red-500/20',
+            yellow: 'from-purple-400 to-yellow-500 bg-yellow-500/10 border-yellow-500/20',
+            purple: 'from-purple-400 to-purple-600 bg-purple-500/15 border-purple-500/30',
+            cyan: 'from-purple-400 to-cyan-500 bg-cyan-500/10 border-cyan-500/20',
+            orange: 'from-purple-400 to-orange-500 bg-orange-500/10 border-orange-500/20',
+            gray: 'from-gray-400 to-gray-600 bg-gray-500/10 border-gray-500/20'
+        }
+        return colors[color as keyof typeof colors] || colors.gray
+    }
+
+    // Get unique categories for filter buttons
+    const categories = ['All', ...Array.from(new Set(skillsData.map(skill => skill.category)))]
+
+    // Filter skills based on selected category
+    const filteredSkills = selectedCategory === 'All' 
+        ? skillsData 
+        : skillsData.filter(skill => skill.category === selectedCategory)
+
+    const funFacts = [
+        "I love Rick & Morty.",
+        "I'm dying to create something (like Rick, yes), something that matters.",
+        "I self-learnt playing piano, and is fascinated with musics.",
+        "May be I should create a music app?",
+        "I am gathering ideas, and may be you could enlighten me.",
+
+    ]
 
     return (
         <div className="min-h-screen bg-gray-900 text-gray-300 font-mono">
