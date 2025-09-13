@@ -62,10 +62,18 @@ const projectsData = {
         },
         {
             id: 9,
-            title: "Research Projects",
-            description: "Fault Tolerant Systems and Fuzz4ALL research at UIUC",
-            technologies: ["Large Language Models", "Autonomous Vehicles", "Universal Fuzzing"],
-            liveUrl: "#",
+            title: "Fault Tolerant System Design",
+            description: "Research on fault tolerant systems for autonomous vehicles at UIUC",
+            technologies: ["Autonomous Vehicles", "System Design", "Fault Tolerance"],
+            liveUrl: "https://drive.google.com/file/d/1Ze3Mv3jtRBpiKniBh6ZKDQrHe5rRU_Bg/view",
+            githubUrl: "https://github.com/realBJ-dot"
+        },
+        {
+            id: 10,
+            title: "Fuzz4ALL Research",
+            description: "Extended empirical study on universal fuzzing techniques",
+            technologies: ["Large Language Models", "Universal Fuzzing", "Software Testing"],
+            liveUrl: "https://drive.google.com/file/d/1f_eW_4yI5ZAiG47OOOxi43MZze2bH8Su/view",
             githubUrl: "https://github.com/realBJ-dot"
         }
     ]
@@ -169,7 +177,7 @@ export default function ModernPortfolio() {
             className="bg-gray-800 border border-gray-600 rounded p-4 hover:border-purple-400 hover:shadow-lg hover:shadow-purple-400/20 transition-all duration-300 group cursor-pointer"
         >
             {/* App Icon - Compact Design */}
-            
+
             <h3 className="text-white font-bold mb-2 group-hover:text-purple-400 transition-colors">{project.title}</h3>
             <p className="text-gray-400 text-sm mb-3">{project.description}</p>
             <div className="flex flex-wrap gap-1 mb-3">
@@ -319,6 +327,14 @@ export default function ModernPortfolio() {
                             >
                                 #contacts
                             </button>
+                            <a
+                                href="https://drive.google.com/file/d/1yPNNrw0_pDzpVCD2-lFMD4rfo_ve7Iaw/view?usp=sharing"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-sm hover:text-purple-400 transition-colors text-gray-300 border border-purple-400 hover:bg-purple-400 hover:text-gray-900 px-3 py-1 rounded"
+                            >
+                                📄 Resume
+                            </a>
                         </nav>
                     </div>
                 </header>
@@ -600,6 +616,15 @@ export default function ModernPortfolio() {
                                                 <Globe className="w-4 h-4 text-gray-400" />
                                                 <span>@BarneyJin</span>
                                             </div>
+                                            <a
+                                                href="https://drive.google.com/file/d/1yPNNrw0_pDzpVCD2-lFMD4rfo_ve7Iaw/view?usp=sharing"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center space-x-2 text-purple-400 hover:text-purple-300 transition-colors"
+                                            >
+                                                <ChevronRight className="w-4 h-4" />
+                                                <span>View My Resume</span>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
