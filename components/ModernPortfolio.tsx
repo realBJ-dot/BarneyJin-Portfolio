@@ -1,7 +1,7 @@
 import { ArrowUpRight, ArrowDown } from 'lucide-react'
 
 const links = {
-    resume: 'https://drive.google.com/file/d/1yPNNrw0_pDzpVCD2-lFMD4rfo_ve7Iaw/view?usp=sharing',
+    resume: 'https://drive.google.com/drive/my-drive?dmr=1&ec=wgc-drive-%5Bmodule%5D-goto',
     github: 'https://github.com/realBJ-dot',
     linkedin: 'https://www.linkedin.com/in/barneyjin/',
 }
