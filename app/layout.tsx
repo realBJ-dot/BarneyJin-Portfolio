@@ -1,24 +1,11 @@
 import type { Metadata } from 'next'
-import { JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 
-const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'] })
-
 export const metadata: Metadata = {
-    title: 'Barney Jin - Software Engineer Portfolio',
-    description: 'Full-Stack Software Engineer specializing in modern web technologies, mobile development, and enterprise solutions. MS Computer Science from University of Illinois.',
+    title: 'Barney Jin — Software Engineer',
+    description: 'Mobile apps, web products, and the systems behind them. Selected work by software engineer Barney Jin, including Go Birdie Go and Next Fan Up.',
 }
 
-export default function RootLayout({
-    children,
-}: {
-    children: React.ReactNode
-}) {
-    return (
-        <html lang="en">
-            <body className={jetbrainsMono.className}>
-                {children}
-            </body>
-        </html>
-    )
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+    return <html lang="en"><body>{children}</body></html>
 }
